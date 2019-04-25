@@ -8,18 +8,19 @@ import javax.swing.SwingConstants;
 
 public class LabelEx extends JFrame {
 	public LabelEx() {
-		setTitle("·¹ÀÌºí ¿¹Á¦");
+		setTitle("ë ˆì´ë¸” ì˜ˆì œ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container c = getContentPane();
 		c.setLayout(new FlowLayout());
 
-		JLabel textLabel = new JLabel("»ç¶ûÇÕ´Ï´Ù.");
+		JLabel textLabel = new JLabel("ì‚¬ë‘í•©ë‹ˆë‹¤.");
 
-		ImageIcon beauty = new ImageIcon("images/beauty.jpg")
+		ImageIcon beauty = new ImageIcon("images/beauty.jpg");
+		
 		JLabel imageLabel = new JLabel(beauty);
 
 		ImageIcon normalIcon = new ImageIcon("images/normalIcon.gif");
-		JLabel label = new JLabel("º¸°í½ÍÀ¸¸é ÀüÈ­ÇÏ¼¼¿ä", normalIcon, SwingConstants.CENTER); 
+		JLabel label = new JLabel("ë³´ê³ ì‹¶ìœ¼ë©´ ì „í™”í•˜ì„¸ìš”", normalIcon, SwingConstants.CENTER); 
 
 		c.add(textLabel);
 		c.add(imageLabel);
