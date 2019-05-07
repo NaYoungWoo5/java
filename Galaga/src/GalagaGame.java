@@ -37,12 +37,12 @@ public class GalagaGame extends JPanel implements KeyListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		try {
-			BossImage = ImageIO.read(new File("Boss.jpg"));// ∫∏Ω∫
-			MBossImage = ImageIO.read(new File("MBoss.png"));// ¡ﬂ∞£ ∫∏Ω∫
-			NaImage = ImageIO.read(new File("Na.png")); // æ∆¿Ã≈€
-			shotImage = ImageIO.read(new File("fire.png")); // √—æÀ
-			shipImage = ImageIO.read(new File("starship.png")); // ¡÷¿Œ∞¯
-			alienImage = ImageIO.read(new File("alien.png"));// ∏ÛΩ∫≈Õ
+			BossImage = ImageIO.read(new File("Boss.jpg"));// Î≥¥Ïä§
+			MBossImage = ImageIO.read(new File("MBoss.png"));// Ï§ëÍ∞Ñ Î≥¥Ïä§
+			NaImage = ImageIO.read(new File("Na.png")); // ÏïÑÏù¥ÌÖú
+			shotImage = ImageIO.read(new File("fire.png")); // Ï¥ùÏïå
+			shipImage = ImageIO.read(new File("starship.png")); // Ï£ºÏù∏Í≥µ
+			alienImage = ImageIO.read(new File("alien.png"));// Î™¨Ïä§ÌÑ∞
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -139,9 +139,9 @@ public class GalagaGame extends JPanel implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_A)
-			starship.setDx(-3);
+			starship.setDx(-5);
 		if (e.getKeyCode() == KeyEvent.VK_D)
-			starship.setDx(+3);
+			starship.setDx(+5);
 		if (e.getKeyCode() == KeyEvent.VK_CONTROL)
 			fire();
 	}
