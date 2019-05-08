@@ -13,8 +13,6 @@ import javax.swing.JPanel;
 
 public class GalagaGame extends JPanel implements KeyListener {
 
-	int item = 0;
-
 	private boolean running = true;
 
 	private ArrayList sprites = new ArrayList();
@@ -88,12 +86,10 @@ public class GalagaGame extends JPanel implements KeyListener {
 
 	public void fire() {
 		ShotSprite shot = new ShotSprite(this, shotImage, starship.getX() + 5, starship.getY() - 30);
-		if (item <= 1) {
-			ShotSprite shot1 = new ShotSprite(this, shotImage, starship.getX() + 10, starship.getY() - 10);
-			ShotSprite shot2 = new ShotSprite(this, shotImage, starship.getX() + 1, starship.getY() - 10);
-			sprites.add(shot1);
-			sprites.add(shot2);
-		}
+		ShotSprite shot1 = new ShotSprite(this, shotImage, starship.getX() + 10, starship.getY() - 10);
+		ShotSprite shot2 = new ShotSprite(this, shotImage, starship.getX() + 1, starship.getY() - 10);
+		sprites.add(shot1);
+		sprites.add(shot2);
 		sprites.add(shot);
 	}
 
