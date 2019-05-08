@@ -61,7 +61,7 @@ public class GalagaGame extends JPanel implements KeyListener {
 				sprites.add(alien);
 				sprites.add(Na);
 
-				Sprite MBoss = new AlienSprite(this, MBossImage, 1000 + (x * 10), (10) + y * 10);
+				Sprite MBoss = new AlienSprite(this, MBossImage, 1000 + (x * 15), (15) + y * 15);
 				sprites.add(MBoss);
 
 				Sprite Boss = new AlienSprite(this, BossImage, 2500 + (x * 0), (1) + y * 1);
