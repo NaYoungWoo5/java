@@ -15,15 +15,25 @@ public class StarShipSprite extends Sprite {
 		if ((dx < 0) && (x < 10)) {
 			return;
 		}
-		if ((dx > 0) && (x > 800)) {
+		if ((dx > 0) && (x > 750)) {
 			return;
 		}
+		if ((dy < 0) && (y < 10)) {
+			return;
+		}
+		if ((dy > 0) && (y > 530)) {
+			return;
+		}
+		
 		super.move();
 	}
 
 	@Override
 	public void handleCollision(Sprite other) {
 		if (other instanceof AlienSprite) {
+			game.endGame();
+		}
+		if (other instanceof BossSprite) {
 			game.endGame();
 		}
 	}

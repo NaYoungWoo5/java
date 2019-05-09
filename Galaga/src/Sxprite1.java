@@ -1,18 +1,18 @@
 import java.awt.Image;
 
-public class ShotSprite extends Sprite {
+public class Sxprite1 extends Sprite{
 	private GalagaGame game;
 
-	public ShotSprite(GalagaGame game, Image image, int x, int y) {
+	public Sxprite1(GalagaGame game, Image image, int x, int y) {
 		super(image, x, y);
 		this.game = game;
-		dy = -3;
+		dx = -3;
 	}
 
 	@Override
 	public void move() {
 		super.move();
-		if (y < -100) {
+		if (x < -100) {
 			game.removeSprite(this);
 		}
 	}

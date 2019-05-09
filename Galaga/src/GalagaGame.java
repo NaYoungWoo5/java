@@ -19,11 +19,10 @@ public class GalagaGame extends JPanel implements KeyListener {
 	private Sprite starship;
 
 	private BufferedImage BossImage;
-	private BufferedImage MBossImage;
-	private BufferedImage NaImage;
+	private BufferedImage monsterImage;
 	private BufferedImage alienImage;
 	private BufferedImage shotImage;
-	private BufferedImage shipImage;
+	private BufferedImage Player1Image;
 
 	public GalagaGame() {
 		JFrame frame = new JFrame("Galaga Game");
@@ -35,12 +34,11 @@ public class GalagaGame extends JPanel implements KeyListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		try {
-			BossImage = ImageIO.read(new File("Boss.jpg"));// 보스
-			MBossImage = ImageIO.read(new File("MBoss.png"));// 중간 보스
-			NaImage = ImageIO.read(new File("Na.png")); // 아이템
-			shotImage = ImageIO.read(new File("fire.png")); // 총알
-			shipImage = ImageIO.read(new File("starship.png")); // 주인공
-			alienImage = ImageIO.read(new File("alien.png"));// 몬스터
+			BossImage = ImageIO.read(new File("Boss.png"));
+			monsterImage = ImageIO.read(new File("monster.png"));
+			shotImage = ImageIO.read(new File("fire.png"));
+			Player1Image = ImageIO.read(new File("Player1.png"));
+			alienImage = ImageIO.read(new File("alien.png"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -52,19 +50,17 @@ public class GalagaGame extends JPanel implements KeyListener {
 	}
 
 	private void initSprites() {
-		starship = new StarShipSprite(this, shipImage, 370, 550);
+		starship = new StarShipSprite(this, Player1Image, 370, 550);
 		sprites.add(starship);
 		for (int y = 0; y < 5; y++) {
 			for (int x = 0; x < 12; x++) {
 				Sprite alien = new AlienSprite(this, alienImage, 1 + (x * 60), (60) + y * 60);
-				Sprite Na = new AlienSprite(this, NaImage, 1 + (x * 60), (60) + y * 60);
+				/*Sprite alien1 = new AlienSprite(this, alienImage, 1 + (x * 60), (60) + y * 60);
+				sprites.add(alien1);*/
+				Sprite monster = new AlienSprite(this, monsterImage, 1 + (x * 60), (60) + y * 60);
 				sprites.add(alien);
-				sprites.add(Na);
-
-				Sprite MBoss = new AlienSprite(this, MBossImage, 1000 + (x * 15), (15) + y * 15);
-				sprites.add(MBoss);
-
-				Sprite Boss = new AlienSprite(this, BossImage, 2500 + (x * 0), (1) + y * 1);
+				sprites.add(monster);
+				Sprite Boss = new BossSprite(this, BossImage, 2500 + (x * 0), (1) + y * 1);
 				sprites.add(Boss);
 
 			}
@@ -85,12 +81,16 @@ public class GalagaGame extends JPanel implements KeyListener {
 	}
 
 	public void fire() {
-		ShotSprite shot = new ShotSprite(this, shotImage, starship.getX() + 5, starship.getY() - 30);
-		ShotSprite shot1 = new ShotSprite(this, shotImage, starship.getX() + 10, starship.getY() - 10);
-		ShotSprite shot2 = new ShotSprite(this, shotImage, starship.getX() + 1, starship.getY() - 10);
-		sprites.add(shot1);
-		sprites.add(shot2);
+		ShotSprite shot = new ShotSprite(this, shotImage, starship.getX() + 10, starship.getY() - 10);
 		sprites.add(shot);
+		Sxprite1 shot2 = new Sxprite1(this, shotImage, starship.getX() + 1, starship.getY() - 0);
+		sprites.add(shot2);
+		Sxprite shot3 = new Sxprite(this, shotImage, starship.getX() + 21, starship.getY() - 0);
+		sprites.add(shot3);
+		Shot1Sprite shot4 = new Shot1Sprite(this, shotImage, starship.getX() + 10, starship.getY() + 20);
+		sprites.add(shot4);
+		SSprite shot1 = new SSprite(this, shotImage, starship.getX() + 10, starship.getY() + 20);
+		sprites.add(shot1);
 	}
 
 	@Override
@@ -134,20 +134,28 @@ public class GalagaGame extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_A)
+		if (e.getKeyCode() == KeyEvent.VK_LEFT)
 			starship.setDx(-5);
-		if (e.getKeyCode() == KeyEvent.VK_D)
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
 			starship.setDx(+5);
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
+			starship.setDy(+5);
+		if (e.getKeyCode() == KeyEvent.VK_UP)
+			starship.setDy(-5);
 		if (e.getKeyCode() == KeyEvent.VK_CONTROL)
 			fire();
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_A)
+		if (e.getKeyCode() == KeyEvent.VK_LEFT)
 			starship.setDx(0);
-		if (e.getKeyCode() == KeyEvent.VK_D)
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
 			starship.setDx(0);
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
+			starship.setDy(0);
+		if (e.getKeyCode() == KeyEvent.VK_UP)
+			starship.setDy(0);
 	}
 
 	@Override
