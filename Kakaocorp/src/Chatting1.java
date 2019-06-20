@@ -21,7 +21,7 @@ public class Chatting1 extends JFrame {
 	private BufferedWriter out = null;
 
 	public Chatting1() {
-		super("채팅 클라이언트 2번");
+		super("채팅 클라이언트 1번");
 		setSize(410, 100);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container c = getContentPane();
@@ -46,7 +46,7 @@ public class Chatting1 extends JFrame {
 						out.flush();
 					
 				} catch (IOException e) {
-					System.out.println("클라이언트 2번 : 서버로부터 연결 종료");
+					System.out.println("클라이언트 1번 : 서버로부터 연결 종료");
 					return;
 				}
 			}
