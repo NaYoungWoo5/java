@@ -7,20 +7,18 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.Buffer;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class KakaoTalk extends JFrame {
 	private JTextArea log = new JTextArea();
-
+	private String N = "나영우";
 	public KakaoTalk() {
 		super("카카오톡 서버");
-		setSize(250, 250);
+		setSize(350, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		Container c = getContentPane();
@@ -40,7 +38,7 @@ public class KakaoTalk extends JFrame {
 				listener = new ServerSocket(9998);
 				while (true) {
 					socket = listener.accept();
-					log.append("클라이언트 1번 연결됨\n");
+					log.append("클라이언트 연결됨\n");
 					new ServiceThread(socket).start();
 
 				}
@@ -81,7 +79,7 @@ public class KakaoTalk extends JFrame {
 					String first = in.readLine();
 					//String operator = in.readLine();
 					//String second = in.readLine();
-					String a = in.readLine();
+					//String a = in.readLine();
 					//int b = Integer.parseInt(second);
 					
 					String resText = "";
@@ -110,8 +108,8 @@ public class KakaoTalk extends JFrame {
 				log.append(first /*+ operator + second + "=" +resText*/ + "\n");
 				
 				} catch (IOException e) {
-					log.append("1번 연결종료\n");
-					System.out.println("1번 연결 종료");
+					log.append("연결종료\n");
+					System.out.println("연결 종료");
 					return;
 					//e.printStackTrace();
 					
