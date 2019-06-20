@@ -14,10 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 public class Chatting1 extends JFrame {
-	private JTextField startTf = new JTextField(7);
-	//private JTextField operatorTf = new JTextField(3); // 사칙연산
-	//private JTextField endTf = new JTextField(7);// b
-	//private JTextField resTf = new JTextField(7);
+	private JTextField startTf = new JTextField(17);
 	private JButton calcBtn = new JButton("입력");
 	private Socket socket = null;
 	private BufferedReader in = null;
@@ -30,10 +27,6 @@ public class Chatting1 extends JFrame {
 		Container c = getContentPane();
 		c.setLayout(new FlowLayout());
 		c.add(startTf);
-		/*c.add(operatorTf);
-		c.add(endTf);
-		c.add(new JLabel("="));*/
-		//c.add(resTf);
 		c.add(calcBtn);
 
 		setVisible(true);
@@ -43,29 +36,18 @@ public class Chatting1 extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				try {
 					String startText = startTf.getText().trim();
-					//String operatorText = operatorTf.getText().trim();
-					//String endText = endTf.getText().trim();
 
-					if (startText.length() == 0 //|| operatorText.length() == 0 
-							/*||endText.length() == 0*/) 
+					if (startText.length() == 0) 
 							return;
 					
 					out.write("가족 : "+startText + "\n");
-						//out.write(operatorText + "\n");
-						//out.write(endText + "\n");
 						out.flush();
-
-						//String result = in.readLine();
-						//resTf.setText(result);
 					
 				} catch (IOException e) {
-					// TODO: handle exception
 					System.out.println("클라이언트 2번 : 서버로부터 연결 종료");
 					return;
-					//e.printStactTeace();
 				}
 			}
 		});
