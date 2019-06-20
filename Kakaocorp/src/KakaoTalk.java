@@ -17,7 +17,7 @@ public class KakaoTalk extends JFrame {
 	private JTextArea log = new JTextArea();
 	public KakaoTalk() {
 		super("카카오톡 서버");
-		setSize(400, 550);
+		setSize(450, 550);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		Container c = getContentPane();
@@ -76,32 +76,11 @@ public class KakaoTalk extends JFrame {
 			while(true){
 				try {
 					String first = in.readLine();
-					//String operator = in.readLine();
 					//String second = in.readLine();
 					//String a = in.readLine();
 					//int b = Integer.parseInt(second);
 					
 					String resText = "";
-					int res = 0;
-				/*switch (operator) {
-				case "+" : res = a; resText = Integer.toString(res); break;
-					
-				case "-" : res = a-b; resText = Integer.toString(res); break;
-				
-				case "*" : res = a*b; resText = Integer.toString(res); break;
-				
-				case "/" : 
-					if(b==0)resText = "0으론 나눌수 없음";
-					else{
-						res = a/b;
-						resText = Integer.toString(res);
-						
-					
-					}
-				break;
-				default:
-					resText = "잘못된 연산";
-				}*/
 				out.write(resText + "\n");
 				out.flush();
 				log.append(first /*+ operator + second + "=" +resText*/ + "\n");
