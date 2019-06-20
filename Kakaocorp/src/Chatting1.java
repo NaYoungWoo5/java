@@ -11,22 +11,20 @@ import java.net.Socket;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Chatting1 extends JFrame {
 	private JTextField startTf = new JTextField(7);
-	//private JTextField operatorTf = new JTextField(3); // »çÄ¢¿¬»ê
+	//private JTextField operatorTf = new JTextField(3); // ì‚¬ì¹™ì—°ì‚°
 	//private JTextField endTf = new JTextField(7);// b
 	//private JTextField resTf = new JTextField(7);
-	private JButton calcBtn = new JButton("ÀÔ·Â");
+	private JButton calcBtn = new JButton("ì…ë ¥");
 	private Socket socket = null;
 	private BufferedReader in = null;
 	private BufferedWriter out = null;
 
 	public Chatting1() {
-		super("Ã¤ÆÃ Å¬¶óÀÌ¾ğÆ® 2¹ø");
+		super("ì±„íŒ… í´ë¼ì´ì–¸íŠ¸ 2ë²ˆ");
 		setSize(410, 100);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container c = getContentPane();
@@ -55,7 +53,7 @@ public class Chatting1 extends JFrame {
 							/*||endText.length() == 0*/) 
 							return;
 					
-						out.write(startText + "\n");
+					out.write("ê°€ì¡± : "+startText + "\n");
 						//out.write(operatorText + "\n");
 						//out.write(endText + "\n");
 						out.flush();
@@ -65,7 +63,7 @@ public class Chatting1 extends JFrame {
 					
 				} catch (IOException e) {
 					// TODO: handle exception
-					System.out.println("Å¬¶óÀÌ¾ğÆ® 2¹ø : ¼­¹ö·ÎºÎÅÍ ¿¬°á Á¾·á");
+					System.out.println("í´ë¼ì´ì–¸íŠ¸ 2ë²ˆ : ì„œë²„ë¡œë¶€í„° ì—°ê²° ì¢…ë£Œ");
 					return;
 					//e.printStactTeace();
 				}
