@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 
 public class Chatting1 extends JFrame {
 	private JTextField startTf = new JTextField(17);
-	private JButton calcBtn = new JButton("입력");
+	private JButton calcBtn = new JButton("전송");
 	private Socket socket = null;
 	private BufferedReader in = null;
 	private BufferedWriter out = null;
