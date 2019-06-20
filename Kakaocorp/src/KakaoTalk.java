@@ -15,10 +15,9 @@ import javax.swing.JTextArea;
 
 public class KakaoTalk extends JFrame {
 	private JTextArea log = new JTextArea();
-	private String N = "나영우";
 	public KakaoTalk() {
 		super("카카오톡 서버");
-		setSize(350, 300);
+		setSize(400, 550);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		Container c = getContentPane();
