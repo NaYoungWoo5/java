@@ -19,12 +19,12 @@ public class KakaoTalk extends JFrame {
 	private JTextArea log = new JTextArea();
 
 	public KakaoTalk() {
-		super("Ä«Ä«¿ÀÅå ¼­¹ö");
+		super("ì¹´ì¹´ì˜¤í†¡ ì„œë²„");
 		setSize(250, 250);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		Container c = getContentPane();
-		c.add(new JLabel("Ã¤ÆÃ ¼­¹ö ÀÔ´Ï´Ù"));
+		c.add(new JLabel("ì±„íŒ… ì„œë²„ ì…ë‹ˆë‹¤"));
 		c.add(new JScrollPane(log), BorderLayout.CENTER);
 		setVisible(true);
 
@@ -40,7 +40,7 @@ public class KakaoTalk extends JFrame {
 				listener = new ServerSocket(9998);
 				while (true) {
 					socket = listener.accept();
-					log.append("Å¬¶óÀÌ¾ğÆ® 1¹ø ¿¬°áµÊ\n");
+					log.append("í´ë¼ì´ì–¸íŠ¸ 1ë²ˆ ì—°ê²°ë¨\n");
 					new ServiceThread(socket).start();
 
 				}
@@ -81,7 +81,7 @@ public class KakaoTalk extends JFrame {
 					String first = in.readLine();
 					//String operator = in.readLine();
 					//String second = in.readLine();
-					int a = Integer.parseInt(first);
+					String a = in.readLine();
 					//int b = Integer.parseInt(second);
 					
 					String resText = "";
@@ -94,7 +94,7 @@ public class KakaoTalk extends JFrame {
 				case "*" : res = a*b; resText = Integer.toString(res); break;
 				
 				case "/" : 
-					if(b==0)resText = "0À¸·Ğ ³ª´­¼ö ¾øÀ½";
+					if(b==0)resText = "0ìœ¼ë¡  ë‚˜ëˆŒìˆ˜ ì—†ìŒ";
 					else{
 						res = a/b;
 						resText = Integer.toString(res);
@@ -103,15 +103,15 @@ public class KakaoTalk extends JFrame {
 					}
 				break;
 				default:
-					resText = "Àß¸øµÈ ¿¬»ê";
+					resText = "ì˜ëª»ëœ ì—°ì‚°";
 				}*/
 				out.write(resText + "\n");
 				out.flush();
 				log.append(first /*+ operator + second + "=" +resText*/ + "\n");
 				
 				} catch (IOException e) {
-					log.append("1¹ø ¿¬°áÁ¾·á\n");
-					System.out.println("1¹ø ¿¬°á Á¾·á");
+					log.append("1ë²ˆ ì—°ê²°ì¢…ë£Œ\n");
+					System.out.println("1ë²ˆ ì—°ê²° ì¢…ë£Œ");
 					return;
 					//e.printStackTrace();
 					
