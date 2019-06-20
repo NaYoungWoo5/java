@@ -14,8 +14,9 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 public class Chatting extends JFrame {
-	private JTextField startTf = new JTextField(7);
+	private JTextField startTf = new JTextField(17);
 	private JButton calcBtn = new JButton("전송");
+	private JButton emoticonBtn = new JButton("이모티콘");
 	private Socket socket = null;
 	private BufferedReader in = null;
 	private BufferedWriter out = null;
@@ -28,22 +29,50 @@ public class Chatting extends JFrame {
 		c.setLayout(new FlowLayout());
 		c.add(startTf);
 		c.add(calcBtn);
+		c.add(emoticonBtn);
 
 		setVisible(true);
 		setupConnection();
-
+		
+		emoticonBtn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg1) {
+				// TODO Auto-generated method stub
+				try {
+					String startText1 = startTf.getText().trim();
+					
+					startTf.setText("");
+					
+					if (startText1.length() == 0)
+							return;
+					
+						out.write("나영우 : t( -_- t )\n");
+						out.flush();
+						/*S*/
+				} catch (IOException e) {
+					// TODO: handle exception
+					System.out.println("클라이언트 0번 : 서버로부터 연결 종료");
+					return;
+				}
+			}
+		});
+		
 		calcBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					String startText = startTf.getText().trim();
-
+					
+					startTf.setText("");
+					
 					if (startText.length() == 0) 
 							return;
 					
 						out.write("나영우 : "+startText + "\n");
 						out.flush();
+						/*S*/
 					
 				} catch (IOException e) {
 					// TODO: handle exception
@@ -72,3 +101,4 @@ public class Chatting extends JFrame {
 	}
 
 }
+
